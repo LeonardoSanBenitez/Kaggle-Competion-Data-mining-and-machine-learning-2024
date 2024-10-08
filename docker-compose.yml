@@ -1,0 +1,16 @@
+version: "3.5"
+services:
+  notebooks:
+    container_name: dmml-notebooks
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    command: ["jupyter", "notebook", "--port=8888", "--no-browser", "--ip=0.0.0.0", "--allow-root", "--NotebookApp.token=25708b9f-4733-4d20-93a6-dac3359f5a9b"]
+    volumes:
+      - ./:/src
+    env_file:
+      - .env
+    environment:
+      - PYTHONPATH=/src
+    ports:
+       - 8888:8888
