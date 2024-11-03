@@ -4,7 +4,7 @@ services:
     container_name: dmml-notebooks
     build: 
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.notebooks
     command: ["jupyter", "notebook", "--port=8888", "--no-browser", "--ip=0.0.0.0", "--allow-root", "--NotebookApp.token=25708b9f-4733-4d20-93a6-dac3359f5a9b"]
     volumes:
       - ./:/src
@@ -14,5 +14,16 @@ services:
       - PYTHONPATH=/src
     ports:
        - 8888:8888
-#TODO: add mlflow
-# https://github.com/LeonardoSanBenitez/tutorial-mlflow/tree/main/customized-container
+
+  mlflow:
+    container_name: dmml-mlflow-server
+    build: 
+      context: .
+      dockerfile: Dockerfile.mlflow
+    command: ["mlflow", "ui", "--host=0.0.0.0", "--backend-store-uri=file:///mlflow", "--port=5000"]
+    volumes:
+      - ./assets/mlflow:/mlflow
+    ports:
+      - 5001:5000
+    env_file:
+      - .env
