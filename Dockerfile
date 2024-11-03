@@ -13,6 +13,7 @@ RUN apt-get update && \
         python3-pip \
         python3-setuptools \
         wget
+RUN git config --global --add safe.directory /src
 
 ####################
 # Application dependencies

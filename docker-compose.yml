@@ -14,3 +14,5 @@ services:
       - PYTHONPATH=/src
     ports:
        - 8888:8888
+#TODO: add mlflow
+# https://github.com/LeonardoSanBenitez/tutorial-mlflow/tree/main/customized-container
