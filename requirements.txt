@@ -2,6 +2,7 @@ pandas~=2.2
 numpy~=1.26
 scikit-learn==1.4.2
 matplotlib~=3.9
+ydata-profiling~=4.12
 
 kaggle~=1.6
 hyperopt~=0.2
