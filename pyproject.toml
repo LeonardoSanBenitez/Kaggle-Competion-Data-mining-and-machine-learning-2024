@@ -1,0 +1,6 @@
+[tool.pytest.ini_options]
+asyncio_default_fixture_loop_scope = "function"
+filterwarnings = [
+    "ignore::DeprecationWarning:shap",
+    "ignore::DeprecationWarning:pkg_resources"
+]
