@@ -1,4 +1,9 @@
 # Kaggle-Competion-Data-mining-and-machine-learning-2024
+
+Written report is available at: https://www.overleaf.com/read/pwtxpcffrvsr#44d3a8
+
+Assets requires for reproducibility are available at: https://zenodo.org/records/14478840 (add them to the folder `./assets`)
+
 ## Getting started
 
 Run in the terminal, from the root folder:
