@@ -5,7 +5,7 @@ run-local:
 	echo "\n-------------------------------------------------------------------------\n"
 	echo "Go to http://localhost:8888/tree?token=25708b9f-4733-4d20-93a6-dac3359f5a9b"
 	echo "\n-------------------------------------------------------------------------\n"
-	if docker-compose ps --filter "status=running" | grep dmml-notebooks >/dev/null; then \
+	if docker-compose ps --filter "status=running" | grep dmml-notebooks | grep -v Exit >/dev/null; then \
 		echo "Container is already running."; \
 	else \
 		echo "Container is not running. Starting it now..."; \
@@ -26,3 +26,8 @@ test: run-local
 	
 	echo "\n\n-------\nPytest checks\n-------"
 	docker-compose exec notebooks python3 -m pytest ./tests
+
+
+	# echo "\n\n------------------------\nSonarQube Check\n------------------------"
+	# sonar-scanner
+	# curl -u admin:admin "http://localhost:9000/api/issues/search?componentKeys=your_project_key" | jq '.issues[] | select(.status == "OPEN")'
